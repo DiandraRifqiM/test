@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  background-color: rgba(21, 21, 21, 0.908);
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  color: rgba(171, 166, 166, 0.908);
+  height: 80px;
+  align-items: center;
+}
+
+nav .logo {
+  font-family: "Permanent Marker", cursive;
+  letter-spacing: 3px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: rgba(171, 166, 166, 0.908);
+  text-decoration: none;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 20px;
+}
+
+nav u li a:hover {
+  color: rgba(233, 225, 225, 0.908);
+}
+
+/* Hamburger Css */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 15px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 35px;
+  height: 24px;
+  left: -3px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgba(233, 225, 225, 0.908);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+/* Hamburger Animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: aliceblue;
+  transform: rotate(45deg) translate(-3px, -3px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: aliceblue;
+  transform: rotate(-45deg) translate(-3px, 0px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* responsive breakpoint */
+/* Ukuran Tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 60%;
+  }
+}
+
+/* Ukuran Mobile */
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    overflow-x: hidden;
+    display: flex;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(21, 21, 21, 0.908);
+    z-index: -1;
+    transform: translateX(100%);
+    transition: all 1s;
+  }
+  nav ul.slide {
+    transform: translateX(0);
+  }
+}
